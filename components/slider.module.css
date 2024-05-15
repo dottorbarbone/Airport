@@ -1,0 +1,17 @@
+.teste {
+    background:  blue; 
+  
+    .mySwiper {
+      background: red; 
+  
+      .swiper {
+        background: yellow; 
+      }
+  
+      .swiper-slide {
+        display: none; 
+      }
+  
+    }
+  }
+  

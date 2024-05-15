@@ -22,7 +22,7 @@ async function inserisciCard(cardData) {
   
   // Esempio di utilizzo della funzione per inserire una nuova card
   const nuovaCard = {
-    titolo: 'Nuova Card',
+    titolo: 'Nuovo',
     descrizione: 'Questa è una nuova card',
     stato: 'In corso',
     immagine: 'url-dell-immagine.jpg',

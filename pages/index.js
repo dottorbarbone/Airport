@@ -2,6 +2,7 @@ import Head from "next/head";
 import MediaCard from "@/components/Card";
 import styled from "@/styles/Home.module.css";
 import ResponsiveAppBar from "@/components/Navbar"
+import SwiperCarousel from "@/components/SwiperCarousel";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Page({ data }) {
@@ -13,7 +14,7 @@ export default function Page({ data }) {
       </Head>
       <main className={styled.main}>
         <ResponsiveAppBar />
-        <MediaCard data={data} />
+        <SwiperCarousel data={data} />
       </main>
     </div>
   );
@@ -21,13 +22,14 @@ export default function Page({ data }) {
 
 export async function getStaticProps() {
   try {
-    const res = await fetcher('https://airport-fa47c-default-rtdb.europe-west1.firebasedatabase.app/cards/.json');
+    const data = await fetcher('https://airport-fa47c-default-rtdb.europe-west1.firebasedatabase.app/cards/.json');
     
-    if (!res.ok) {
+    console.log(JSON.stringify(data, null, 4))
+
+    if (!data) {
       throw new Error('Failed to fetch data');
     }
-    
-    const data = await res.json();
+
     console.log('Dati ricevuti:', data); // Stampiamo i dati ricevuti
 
     return {
