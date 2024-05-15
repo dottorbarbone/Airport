@@ -86,8 +86,9 @@ body {
 }
 
 body {
-  padding-top:100px;
-background-color: red;
+  padding-top:100px !important;
+  background-color: rgb(85, 79, 79);
+  padding: 4%;
 }
 
 a {

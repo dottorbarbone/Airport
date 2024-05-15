@@ -26,6 +26,7 @@ async function inserisciCard(cardData) {
     descrizione: 'è una nuova card',
     stato: 'In corso',
     immagine: 'url-dell-immagine.jpg',
+    id:'1'
   };
   
   inserisciCard(nuovaCard)
