@@ -10,8 +10,8 @@ export default function MediaCard({card}) {
   return (
     <Card sx={{ width:'300px', height:'360px', textAlign:'center'}}>
       <CardMedia
-        sx={{ height: 150 }}
-        image={"'"+ card.immagine +"'"}
+        sx={{ height: 170 }}
+        image={card.immagine}
         title={card.immagine}
       />
       <CardContent>
@@ -22,10 +22,9 @@ export default function MediaCard({card}) {
           {card.descrizione}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+        <center>
+          <Button size="medium" color='success' variant='contained' sx={{width:'100px'}}>View</Button>
+        </center>
     </Card>
   );
 }
