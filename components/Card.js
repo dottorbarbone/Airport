@@ -1,33 +1,90 @@
-import { MonochromePhotos } from "@mui/icons-material";
-import { Typography } from "@mui/material";
+import * as React from "react";
 import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Alert from "@mui/material/Alert";
 import Link from "next/link";
-import '@fontsource/roboto/300.css';
-export default function MediaCard({ cards }) {
-    if (!cards) {
-        return <Typography mt={10} gutterBottom variant="h2" fontFamily="Roboto">No data available from <Link href="https://airport-fa47c-default-rtdb.europe-west1.firebasedatabase.app/" >API</Link></Typography>;
-      }
-    return (
-      <Card sx={{ maxWidth: 345 }}>
+import { Skeleton } from "@mui/material";
+
+export default function MediaCard({ card }) {
+  return (
+    card ? (
+      <Card
+        sx={{
+          width: "300px",
+          minHeight: "360px",
+          textAlign: "center",
+          paddingBottom: "10px",
+        }}
+      >
+        {card.schermo === true && (
+          <Alert variant="outlined" severity="info">
+            Presente in Vetrina
+          </Alert>
+        )}
         <CardMedia
-          sx={{ height: 140 }}
-          image={cards.immagine}
-          title={cards.titolo}
+          sx={{ height: 170 }}
+          image={card.immagine}
+          title={card.immagine}
         />
+        <br />
+        {card.amministrativa === true && (
+            <Button variant="contained" color="secondary">
+              Amministrativa
+            </Button>
+        )}
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {cards.titolo}
+            {card.titolo}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {cards.descrizione}
+            {card.descrizione}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
-        </CardActions>
+        <br />
+        <center>
+          {card.completato === true && (
+            <>
+              <Button
+                size="medium"
+                color="success"
+                variant="outlined"
+                sx={{ width: "100px" }}
+              >
+                Completato
+              </Button>
+              &emsp;
+            </>
+          )}
+          {card.id ? (
+            <Link href={`/updatecard/${card.id}`} passHref>
+              <Button
+                size="medium"
+                color="primary"
+                variant="contained"
+                sx={{ width: "100px" }}
+              >
+                Modifica
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              size="medium"
+              color="primary"
+              variant="contained"
+              sx={{ width: "100px" }}
+              disabled
+            >
+              Modifica
+            </Button>
+          )}
+        </center>
       </Card>
-    );
-  }
-  
+    ) : (
+      <Skeleton variant="rectangular" width={300} height={360} />
+    )
+  );
+}

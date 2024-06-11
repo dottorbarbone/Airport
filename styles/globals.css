@@ -86,13 +86,9 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding-top:100px !important;
+  background-color: rgb(85, 79, 79);
+  padding: 4%;
 }
 
 a {
