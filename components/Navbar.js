@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 
-const pages = [{ titolo: "Airport Todo", link: "/NewCard" }];
+const pages = [{titolo: 'Airplanes', link:'/airplanes'}, {titolo: 'Vetrina', link:'/vetrina'}, {titolo: 'Shop aeroporto', link:'/Shop'}, {titolo: 'Lavoratori', link:'/Worker'}];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -43,7 +43,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="./"
+            href="http://localhost:3000/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -120,8 +120,8 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Typography textAlign="center" component="span">
-                <Link href={page.link}>{page.titolo}</Link>
-              </Typography>
+                <Link href={page.link}>{page.titolo}</Link> &emsp;
+              </Typography> 
             ))}
           </Box>
 

@@ -6,7 +6,7 @@
     height: auto;
     background-color: rgba(110, 110, 110, 0.077);
     padding: 20px;
-    border:1px solid rgb(255, 255, 255);
+    border:1px solid rgb(130, 113, 113) !important;
     border-radius: 10px;
     margin-top: 100px;
 }
